@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class Engine {
 
     public static void startGame(String username, GameData gameData) {
-        System.out.println(gameData.gameDescription);
+        System.out.println(gameData.getGameDescription());
         Scanner sc = new Scanner(System.in);
-        String[] questions = gameData.questions;
-        String[] answers = gameData.answers;
+        String[] questions = gameData.getQuestions();
+        String[] answers = gameData.getAnswers();
 
         for (int i = 0; i < Constants.QUESTION_COUNT; i++) {
             System.out.println(questions[i]);

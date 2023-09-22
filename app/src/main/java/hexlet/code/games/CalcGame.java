@@ -39,11 +39,11 @@ public class CalcGame {
             int secondNumber = random.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
             String operation = OPERATIONS[random.nextInt(OPERATIONS.length)];
 
-            gameData.questions[i] = String.format("Question: %d %s %d", firstNumber, operation, secondNumber);
-            gameData.answers[i] = String.valueOf(compute(operation, firstNumber, secondNumber));
+            gameData.getQuestions()[i] = String.format("Question: %d %s %d", firstNumber, operation, secondNumber);
+            gameData.getAnswers()[i] = String.valueOf(compute(operation, firstNumber, secondNumber));
         }
 
-        gameData.gameDescription = DESCRIPTION;
+        gameData.setGameDescription(DESCRIPTION);
         return gameData;
     }
 }

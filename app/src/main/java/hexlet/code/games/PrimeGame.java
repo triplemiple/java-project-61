@@ -39,12 +39,11 @@ public class PrimeGame {
 
         for (int i = 0; i < Constants.QUESTION_COUNT; i++) {
             int randomNumber = random.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
-            gameData.questions[i] = String.format("Question: %d", randomNumber);
-            gameData.answers[i] = numberIsPrime(randomNumber) ? "yes" : "no";
+            gameData.getQuestions()[i] = String.format("Question: %d", randomNumber);
+            gameData.getAnswers()[i] = numberIsPrime(randomNumber) ? "yes" : "no";
         }
 
-        gameData.gameDescription = DESCRIPTION;
-
+        gameData.setGameDescription(DESCRIPTION);
         return gameData;
     }
 }

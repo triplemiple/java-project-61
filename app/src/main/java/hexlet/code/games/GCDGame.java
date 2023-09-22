@@ -39,12 +39,11 @@ public class GCDGame {
             int firstNumber = random.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
             int secondNumber = random.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
 
-            gameData.questions[i] = String.format("Question: %d %d", firstNumber, secondNumber);
-            gameData.answers[i] = String.valueOf(findGreatestCommonDivisor(firstNumber, secondNumber));
+            gameData.getQuestions()[i] = String.format("Question: %d %d", firstNumber, secondNumber);
+            gameData.getAnswers()[i] = String.valueOf(findGreatestCommonDivisor(firstNumber, secondNumber));
         }
 
-        gameData.gameDescription = DESCRIPTION;
-
+        gameData.setGameDescription(DESCRIPTION);
         return gameData;
     }
 }

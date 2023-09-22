@@ -21,12 +21,11 @@ public class EvenGame {
             int randomNumber = random.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
             boolean numberIsEven = randomNumber % 2 == 0;
 
-            gameData.questions[i] = String.format("Question: %d", randomNumber);
-            gameData.answers[i] = numberIsEven ? "yes" : "no";
+            gameData.getQuestions()[i] = String.format("Question: %d", randomNumber);
+            gameData.getAnswers()[i] = numberIsEven ? "yes" : "no";
         }
 
-        gameData.gameDescription = DESCRIPTION;
-
+        gameData.setGameDescription(DESCRIPTION);
         return gameData;
     }
 }

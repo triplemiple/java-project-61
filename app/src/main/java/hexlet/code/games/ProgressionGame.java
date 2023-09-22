@@ -37,11 +37,11 @@ public class ProgressionGame {
             String answer = String.valueOf(progressionStartNumber + commonDifference * questionIndex);
             String question = sb.toString().trim().replace(answer, "..");
 
-            gameData.questions[i] = String.format("Question: %s", question);
-            gameData.answers[i] = answer;
+            gameData.getQuestions()[i] = String.format("Question: %s", question);
+            gameData.getAnswers()[i] = answer;
         }
 
-        gameData.gameDescription = DESCRIPTION;
+        gameData.setGameDescription(DESCRIPTION);
         return gameData;
     }
 }
