@@ -27,7 +27,7 @@ run {
 }
 
 application {
-    mainClass = 'hexlet.code.App'
+    mainClassName = 'hexlet.code.App'
 }
 
 dependencies {
