@@ -7,6 +7,8 @@ import java.util.Random;
 
 public class CalcGame {
 
+    public static final int MENU_NUMBER = 3;
+    public static final String MENU_DESCRIPTION = "Calc";
     private static final int START_RANGE_NUMBER = 0;
     private static final int END_RANGE_NUMBER = 100;
     private static final String DESCRIPTION = "What is the result of the expression?";

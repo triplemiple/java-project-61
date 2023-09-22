@@ -7,6 +7,8 @@ import java.util.Random;
 
 public class PrimeGame {
 
+    public static final int MENU_NUMBER = 6;
+    public static final String MENU_DESCRIPTION = "Prime";
     private static final int START_RANGE_NUMBER = 1;
     private static final int END_RANGE_NUMBER = 20;
     private static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";

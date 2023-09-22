@@ -10,48 +10,57 @@ import java.util.Scanner;
 
 public class App {
 
+    private static final int GREET_MENU_NUMBER = 1;
+    private static final String GREET_MENU_DESCRIPTION = "Greet";
+    private static final int EXIT_MENU_NUMBER = 0;
+    private static final String EXIT_MENU_DESCRIPTION = "Exit";
+    private static final String MENU_DESCRIPTION = "Please enter the game number and press Enter.";
+
+    private static String formatMenu() {
+        return MENU_DESCRIPTION
+                + GREET_MENU_NUMBER + " - " + GREET_MENU_DESCRIPTION + "\n"
+                + EvenGame.MENU_NUMBER + " - " + EvenGame.MENU_DESCRIPTION + "\n"
+                + CalcGame.MENU_NUMBER + " - " + CalcGame.MENU_DESCRIPTION + "\n"
+                + GCDGame.MENU_NUMBER + " - " + GCDGame.MENU_DESCRIPTION + "\n"
+                + ProgressionGame.MENU_NUMBER + " - " + ProgressionGame.MENU_DESCRIPTION + "\n"
+                + PrimeGame.MENU_NUMBER + " - " + PrimeGame.MENU_DESCRIPTION + "\n"
+                + EXIT_MENU_NUMBER + " - " + EXIT_MENU_DESCRIPTION;
+    }
+
     public static void main(String[] args) {
         while (true) {
             try {
-                System.out.println("""
-                        Please enter the game number and press Enter.
-                        1 - Greet
-                        2 - Even
-                        3 - Calc
-                        4 - GCD
-                        5 - Progression
-                        6 - Prime
-                        0 - Exit""");
+                System.out.println(formatMenu());
                 Scanner sc = new Scanner(System.in);
                 int gameNumber = sc.nextInt();
                 System.out.printf("Your choice: %d%n", gameNumber);
 
                 switch (gameNumber) {
-                    case 1 -> {
+                    case GREET_MENU_NUMBER -> {
                         Cli.askName();
                         return;
                     }
-                    case 2 -> {
+                    case EvenGame.MENU_NUMBER -> {
                         String username = Cli.askName();
                         Engine.startGame(username, EvenGame.getGameData());
                     }
-                    case 3 -> {
+                    case CalcGame.MENU_NUMBER -> {
                         String username = Cli.askName();
                         Engine.startGame(username, CalcGame.getGameData());
                     }
-                    case 4 -> {
+                    case GCDGame.MENU_NUMBER -> {
                         String username = Cli.askName();
                         Engine.startGame(username, GCDGame.getGameData());
                     }
-                    case 5 -> {
+                    case ProgressionGame.MENU_NUMBER -> {
                         String username = Cli.askName();
                         Engine.startGame(username, ProgressionGame.getGameData());
                     }
-                    case 6 -> {
+                    case PrimeGame.MENU_NUMBER -> {
                         String username = Cli.askName();
                         Engine.startGame(username, PrimeGame.getGameData());
                     }
-                    case 0 -> {
+                    case EXIT_MENU_NUMBER -> {
                         return;
                     }
                     default -> {

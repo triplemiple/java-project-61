@@ -7,6 +7,8 @@ import java.util.Random;
 
 public class GCDGame {
 
+    public static final int MENU_NUMBER = 4;
+    public static final String MENU_DESCRIPTION = "GCD";
     private static final int START_RANGE_NUMBER = 1;
     private static final int END_RANGE_NUMBER = 100;
     private static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
