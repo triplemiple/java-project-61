@@ -11,7 +11,7 @@ public final class GameData {
     }
 
     public String getGameDescription() {
-        return gameDescription;
+        return this.gameDescription;
     }
 
     public void setGameDescription(String gameDescriptionParam) {
