@@ -17,7 +17,7 @@ public class App {
     private static final String MENU_DESCRIPTION = "Please enter the game number and press Enter.";
 
     private static String formatMenu() {
-        return MENU_DESCRIPTION
+        return MENU_DESCRIPTION + "\n"
                 + GREET_MENU_NUMBER + " - " + GREET_MENU_DESCRIPTION + "\n"
                 + EvenGame.MENU_NUMBER + " - " + EvenGame.MENU_DESCRIPTION + "\n"
                 + CalcGame.MENU_NUMBER + " - " + CalcGame.MENU_DESCRIPTION + "\n"
