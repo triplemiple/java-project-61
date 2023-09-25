@@ -24,7 +24,7 @@ public class PrimeGame {
 
         int lastDivider = (int) Math.ceil(Math.sqrt(number));
 
-        for (int i = 2; i <= lastDivider; i++) {
+        for (int i = 2; i < lastDivider; i++) {
             if (number % i == 0) {
                 return false;
             }
