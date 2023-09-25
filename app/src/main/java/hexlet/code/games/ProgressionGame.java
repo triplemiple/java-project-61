@@ -30,12 +30,12 @@ public class ProgressionGame {
             StringBuilder sb = new StringBuilder();
 
             for (int j = 0; j < progressionSize; j++) {
-                sb.append(" ").append(progressionNumber).append(" ");
+                sb.append(" ").append(progressionNumber);
                 progressionNumber += commonDifference;
             }
 
             String answer = String.valueOf(progressionStartNumber + commonDifference * questionIndex);
-            String question = sb.toString().replace(" " + answer + " ", " .. ").trim();
+            String question = sb.toString().replace(" " + answer, " ..").trim();
 
             gameData.getQuestions()[i] = String.format("Question: %s", question);
             gameData.getAnswers()[i] = answer;
