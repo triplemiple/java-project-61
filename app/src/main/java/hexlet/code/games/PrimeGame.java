@@ -22,9 +22,13 @@ public class PrimeGame {
             return false;
         }
 
+        if (number == 2) {
+            return true;
+        }
+
         int lastDivider = (int) Math.ceil(Math.sqrt(number));
 
-        for (int i = 2; i < lastDivider; i++) {
+        for (int i = 2; i <= lastDivider; i++) {
             if (number % i == 0) {
                 return false;
             }
