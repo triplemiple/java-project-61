@@ -39,8 +39,9 @@ public class GCDGame {
             int firstNumber = random.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
             int secondNumber = random.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
 
-            gameData.getQuestions()[i] = String.format("Question: %d %d", firstNumber, secondNumber);
-            gameData.getAnswers()[i] = String.valueOf(findGreatestCommonDivisor(firstNumber, secondNumber));
+            String question = String.format("Question: %d %d", firstNumber, secondNumber);
+            String answer = String.valueOf(findGreatestCommonDivisor(firstNumber, secondNumber));
+            gameData.setGameRound(i, question, answer);
         }
 
         gameData.setGameDescription(DESCRIPTION);

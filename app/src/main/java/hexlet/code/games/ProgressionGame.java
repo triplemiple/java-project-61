@@ -24,21 +24,20 @@ public class ProgressionGame {
         for (int i = 0; i < Constants.QUESTION_COUNT; i++) {
             int progressionSize = random.nextInt(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
             int commonDifference = random.nextInt(START_RANGE_COMMON_DIFFERENCE, END_RANGE_COMMON_DIFFERENCE);
-            int progressionStartNumber = random.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
-            int progressionNumber = progressionStartNumber;
+            int progressionNumber = random.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
+            int progressionEndNumber = progressionNumber + commonDifference * progressionSize;
             int questionIndex = random.nextInt(0, progressionSize);
-            StringBuilder sb = new StringBuilder();
+            int answerNumber = progressionNumber + commonDifference * questionIndex;
 
-            for (int j = 0; j < progressionSize; j++) {
-                sb.append(" ").append(progressionNumber);
+            StringBuilder question = new StringBuilder();
+
+            do {
+                String toInsert = progressionNumber == answerNumber ? ".." : String.valueOf(progressionNumber);
+                question.append(" ").append(toInsert).append(" ");
                 progressionNumber += commonDifference;
-            }
+            } while (progressionNumber <= progressionEndNumber);
 
-            String answer = String.valueOf(progressionStartNumber + commonDifference * questionIndex);
-            String question = sb.toString().replace(" " + answer, " ..").trim();
-
-            gameData.getQuestions()[i] = String.format("Question: %s", question);
-            gameData.getAnswers()[i] = answer;
+            gameData.setGameRound(i, question.toString(), String.valueOf(answerNumber));
         }
 
         gameData.setGameDescription(DESCRIPTION);

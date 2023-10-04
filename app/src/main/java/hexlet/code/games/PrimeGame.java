@@ -43,8 +43,10 @@ public class PrimeGame {
 
         for (int i = 0; i < Constants.QUESTION_COUNT; i++) {
             int randomNumber = random.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
-            gameData.getQuestions()[i] = String.format("Question: %d", randomNumber);
-            gameData.getAnswers()[i] = numberIsPrime(randomNumber) ? "yes" : "no";
+
+            String question = String.format("Question: %d", randomNumber);
+            String answer = numberIsPrime(randomNumber) ? "yes" : "no";
+            gameData.setGameRound(i, question, answer);
         }
 
         gameData.setGameDescription(DESCRIPTION);

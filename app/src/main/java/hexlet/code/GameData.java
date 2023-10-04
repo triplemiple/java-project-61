@@ -2,25 +2,34 @@ package hexlet.code;
 
 public final class GameData {
 
-    public String[] getQuestions() {
-        return questions;
+    private final GameRound[] gameRound = new GameRound[Constants.QUESTION_COUNT];
+
+    private String gameDescription = "Empty description";
+
+    public void setGameRound(int roundNumber, String question, String answer) {
+        this.gameRound[roundNumber] = new GameRound(question, answer);
     }
 
-    public String[] getAnswers() {
-        return answers;
-    }
-
-    public String getGameDescription() {
-        return this.gameDescription;
+    public GameRound getGameRound(int roundNumber) {
+        return this.gameRound[roundNumber];
     }
 
     public void setGameDescription(String gameDescriptionParam) {
         this.gameDescription = gameDescriptionParam;
     }
 
-    private final String[] questions = new String[Constants.QUESTION_COUNT];
+    public String getGameDescription() {
+        return this.gameDescription;
+    }
 
-    private final String[] answers = new String[Constants.QUESTION_COUNT];
+    public static class GameRound {
 
-    private String gameDescription = "Empty description";
+        public String question;
+        public String answer;
+
+        GameRound(String question, String answer) {
+            this.question = question;
+            this.answer = answer;
+        }
+    }
 }

@@ -4,20 +4,20 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static void startGame(String username, GameData gameData) {
+    public static void startGame(GameData gameData) {
+        String username = Cli.askName();
         System.out.println(gameData.getGameDescription());
         Scanner sc = new Scanner(System.in);
-        String[] questions = gameData.getQuestions();
-        String[] answers = gameData.getAnswers();
 
         for (int i = 0; i < Constants.QUESTION_COUNT; i++) {
-            System.out.println(questions[i]);
+            GameData.GameRound round = gameData.getGameRound(i);
+            System.out.println(round.question);
             String userInput = sc.next();
 
-            boolean answerIsCorrect = userInput.equals(answers[i]);
+            boolean answerIsCorrect = userInput.equals(round.answer);
 
             if (!answerIsCorrect) {
-                System.out.println(PrintUtils.getFailPrint(userInput, answers[i], username));
+                System.out.println(PrintUtils.getFailPrint(userInput, round.answer, username));
                 return;
             }
 

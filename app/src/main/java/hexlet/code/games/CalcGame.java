@@ -39,8 +39,9 @@ public class CalcGame {
             int secondNumber = random.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
             String operation = OPERATIONS[random.nextInt(OPERATIONS.length)];
 
-            gameData.getQuestions()[i] = String.format("Question: %d %s %d", firstNumber, operation, secondNumber);
-            gameData.getAnswers()[i] = String.valueOf(compute(operation, firstNumber, secondNumber));
+            String question = String.format("Question: %d %s %d", firstNumber, operation, secondNumber);
+            String answer = String.valueOf(compute(operation, firstNumber, secondNumber));
+            gameData.setGameRound(i, question, answer);
         }
 
         gameData.setGameDescription(DESCRIPTION);

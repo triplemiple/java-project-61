@@ -40,26 +40,11 @@ public class App {
                         Cli.askName();
                         return;
                     }
-                    case EvenGame.MENU_NUMBER -> {
-                        String username = Cli.askName();
-                        Engine.startGame(username, EvenGame.getGameData());
-                    }
-                    case CalcGame.MENU_NUMBER -> {
-                        String username = Cli.askName();
-                        Engine.startGame(username, CalcGame.getGameData());
-                    }
-                    case GCDGame.MENU_NUMBER -> {
-                        String username = Cli.askName();
-                        Engine.startGame(username, GCDGame.getGameData());
-                    }
-                    case ProgressionGame.MENU_NUMBER -> {
-                        String username = Cli.askName();
-                        Engine.startGame(username, ProgressionGame.getGameData());
-                    }
-                    case PrimeGame.MENU_NUMBER -> {
-                        String username = Cli.askName();
-                        Engine.startGame(username, PrimeGame.getGameData());
-                    }
+                    case EvenGame.MENU_NUMBER -> Engine.startGame(EvenGame.getGameData());
+                    case CalcGame.MENU_NUMBER -> Engine.startGame(CalcGame.getGameData());
+                    case GCDGame.MENU_NUMBER -> Engine.startGame(GCDGame.getGameData());
+                    case ProgressionGame.MENU_NUMBER -> Engine.startGame(ProgressionGame.getGameData());
+                    case PrimeGame.MENU_NUMBER -> Engine.startGame(PrimeGame.getGameData());
                     case EXIT_MENU_NUMBER -> {
                         return;
                     }
