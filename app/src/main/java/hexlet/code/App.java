@@ -1,10 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.CalcGame;
-import hexlet.code.games.EvenGame;
-import hexlet.code.games.GCDGame;
-import hexlet.code.games.PrimeGame;
-import hexlet.code.games.ProgressionGame;
+import hexlet.code.games.*;
 
 import java.util.Scanner;
 
@@ -49,14 +45,14 @@ public class App {
                         return;
                     }
                     default -> {
-                        System.out.println(PrintUtils.getInvalidInputPrint());
+                        System.out.println("Invalid input!");
                         continue;
                     }
                 }
 
                 return;
             } catch (Exception e) {
-                System.out.println(PrintUtils.getInvalidInputPrint());
+                System.out.println("Invalid input!");
             }
         }
     }

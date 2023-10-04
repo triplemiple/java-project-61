@@ -17,13 +17,14 @@ public class Engine {
             boolean answerIsCorrect = userInput.equals(round.answer);
 
             if (!answerIsCorrect) {
-                System.out.println(PrintUtils.getFailPrint(userInput, round.answer, username));
+                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\n"
+                        + "Let's try again, %s!%n", userInput, round.answer, username);
                 return;
             }
 
-            System.out.println(PrintUtils.getCorrectAnswerPrint());
+            System.out.println("Correct!");
         }
 
-        System.out.println(PrintUtils.getCongratulationPrint(username));
+        System.out.printf("Congratulations, %s!%n", username);
     }
 }
