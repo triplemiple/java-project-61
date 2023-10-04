@@ -35,7 +35,8 @@ public class ProgressionGame {
 
             String answerNumber = progressionArray[questionIndex];
             progressionArray[questionIndex] = "..";
-            String question = String.join(" ", progressionArray);
+            String progressionString = String.join(" ", progressionArray);
+            String question = String.format("Question: %s", progressionString);
 
             gameData.setGameRound(i, question, String.valueOf(answerNumber));
         }
