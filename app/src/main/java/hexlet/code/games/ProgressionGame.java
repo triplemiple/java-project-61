@@ -37,7 +37,7 @@ public class ProgressionGame {
                 progressionNumber += commonDifference;
             } while (progressionNumber <= progressionEndNumber);
 
-            gameData.setGameRound(i, question.toString(), String.valueOf(answerNumber));
+            gameData.setGameRound(i, question.toString().trim(), String.valueOf(answerNumber));
         }
 
         gameData.setGameDescription(DESCRIPTION);
