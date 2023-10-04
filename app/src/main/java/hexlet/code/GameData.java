@@ -22,7 +22,7 @@ public final class GameData {
         return this.gameDescription;
     }
 
-    public static class GameRound {
+    public static final class GameRound {
 
         private final String question;
         private final String answer;
