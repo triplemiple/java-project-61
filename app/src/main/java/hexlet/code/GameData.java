@@ -24,12 +24,20 @@ public final class GameData {
 
     public static class GameRound {
 
-        public String question;
-        public String answer;
+        private final String question;
+        private final String answer;
 
-        GameRound(String question, String answer) {
-            this.question = question;
-            this.answer = answer;
+        GameRound(String questionArg, String answerArg) {
+            this.question = questionArg;
+            this.answer = answerArg;
+        }
+
+        public String getQuestion() {
+            return question;
+        }
+
+        public String getAnswer() {
+            return answer;
         }
     }
 }

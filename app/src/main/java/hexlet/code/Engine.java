@@ -11,14 +11,14 @@ public class Engine {
 
         for (int i = 0; i < Constants.QUESTION_COUNT; i++) {
             GameData.GameRound round = gameData.getGameRound(i);
-            System.out.println(round.question);
+            System.out.println(round.getQuestion());
             String userInput = sc.next();
 
-            boolean answerIsCorrect = userInput.equals(round.answer);
+            boolean answerIsCorrect = userInput.equals(round.getAnswer());
 
             if (!answerIsCorrect) {
                 System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\n"
-                        + "Let's try again, %s!%n", userInput, round.answer, username);
+                        + "Let's try again, %s!%n", userInput, round.getAnswer(), username);
                 return;
             }
 
