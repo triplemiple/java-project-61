@@ -6,8 +6,8 @@ public final class GameData {
 
     private String gameDescription = "Empty description";
 
-    public void setGameRound(int roundNumber, String question, String answer) {
-        this.gameRound[roundNumber] = new GameRound(question, answer);
+    public void setGameRound(int roundNumber, GameRound gameRoundArg) {
+        this.gameRound[roundNumber] = gameRoundArg;
     }
 
     public GameRound getGameRound(int roundNumber) {
@@ -27,7 +27,7 @@ public final class GameData {
         private final String question;
         private final String answer;
 
-        GameRound(String questionArg, String answerArg) {
+        public GameRound(String questionArg, String answerArg) {
             this.question = questionArg;
             this.answer = answerArg;
         }

@@ -17,28 +17,48 @@ public class ProgressionGame {
     private static final int END_RANGE_COMMON_DIFFERENCE = 6;
     private static final String DESCRIPTION = "What number is missing in the progression?";
 
+    private static int[] getProgresison() {
+        Random random = new Random();
+        int progressionSize = random.nextInt(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
+        int commonDifference = random.nextInt(START_RANGE_COMMON_DIFFERENCE, END_RANGE_COMMON_DIFFERENCE);
+        int progressionNumber = random.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
+        int[] progression = new int[progressionSize];
+
+        for (int i = 0; i < progression.length; i++) {
+            progression[i] = progressionNumber;
+            progressionNumber += commonDifference;
+        }
+
+        return progression;
+    }
+
+    private static int getQuestionIndex(int progressionSize) {
+        Random random = new Random();
+        return random.nextInt(0, progressionSize);
+    }
+
+    private static GameData.GameRound getGameRound(int[] progression, int questionIndex) {
+        String[] progressionStringArray = new String[progression.length];
+
+        for (int i = 0; i < progressionStringArray.length; i++) {
+            progressionStringArray[i] = i == questionIndex ? ".." : String.valueOf(progression[i]);
+        }
+
+        String progressionString = String.join(" ", progressionStringArray);
+        String question = String.format("Question: %s", progressionString);
+        String answer = String.valueOf(progression[questionIndex]);
+        return new GameData.GameRound(question, answer);
+    }
+
+
     public static GameData getGameData() {
         GameData gameData = new GameData();
-        Random random = new Random();
 
         for (int i = 0; i < Constants.QUESTION_COUNT; i++) {
-            int progressionSize = random.nextInt(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
-            int commonDifference = random.nextInt(START_RANGE_COMMON_DIFFERENCE, END_RANGE_COMMON_DIFFERENCE);
-            int progressionNumber = random.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
-            int questionIndex = random.nextInt(0, progressionSize);
-            String[] progressionArray = new String[progressionSize];
-
-            for (int j = 0; j < progressionArray.length; j++) {
-                progressionArray[j] = String.valueOf(progressionNumber);
-                progressionNumber += commonDifference;
-            }
-
-            String answerNumber = progressionArray[questionIndex];
-            progressionArray[questionIndex] = "..";
-            String progressionString = String.join(" ", progressionArray);
-            String question = String.format("Question: %s", progressionString);
-
-            gameData.setGameRound(i, question, String.valueOf(answerNumber));
+            int[] progression = getProgresison();
+            int questionIndex = getQuestionIndex(progression.length);
+            GameData.GameRound gameRound = getGameRound(progression, questionIndex);
+            gameData.setGameRound(i, gameRound);
         }
 
         gameData.setGameDescription(DESCRIPTION);

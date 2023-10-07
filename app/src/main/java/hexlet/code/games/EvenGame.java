@@ -13,17 +13,28 @@ public class EvenGame {
     private static final int END_RANGE_NUMBER = 100;
     private static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public static GameData getGameData() {
+    private static int getRandomNumber() {
         Random random = new Random();
+        return random.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
+    }
+
+    private static boolean numberIsEven(int number) {
+        return number % 2 == 0;
+    }
+
+    private static GameData.GameRound getGameRound(int number) {
+        String question = String.format("Question: %d", number);
+        String answer = numberIsEven(number) ? "yes" : "no";
+        return new GameData.GameRound(question, answer);
+    }
+
+    public static GameData getGameData() {
         GameData gameData = new GameData();
 
         for (int i = 0; i < Constants.QUESTION_COUNT; i++) {
-            int randomNumber = random.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
-            boolean numberIsEven = randomNumber % 2 == 0;
-
-            String question = String.format("Question: %d", randomNumber);
-            String answer = numberIsEven ? "yes" : "no";
-            gameData.setGameRound(i, question, answer);
+            int number = getRandomNumber();
+            GameData.GameRound gameRound = getGameRound(number);
+            gameData.setGameRound(i, gameRound);
         }
 
         gameData.setGameDescription(DESCRIPTION);

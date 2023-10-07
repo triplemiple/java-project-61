@@ -33,16 +33,24 @@ public class PrimeGame {
         return true;
     }
 
-    public static GameData getGameData() {
+    private static int getRandomNumber() {
         Random random = new Random();
+        return random.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
+    }
+
+    private static GameData.GameRound getGameRound(int number) {
+        String question = String.format("Question: %d", number);
+        String answer = numberIsPrime(number) ? "yes" : "no";
+        return new GameData.GameRound(question, answer);
+    }
+
+    public static GameData getGameData() {
         GameData gameData = new GameData();
 
         for (int i = 0; i < Constants.QUESTION_COUNT; i++) {
-            int randomNumber = random.nextInt(START_RANGE_NUMBER, END_RANGE_NUMBER);
-
-            String question = String.format("Question: %d", randomNumber);
-            String answer = numberIsPrime(randomNumber) ? "yes" : "no";
-            gameData.setGameRound(i, question, answer);
+            int number = getRandomNumber();
+            GameData.GameRound gameRound = getGameRound(number);
+            gameData.setGameRound(i, gameRound);
         }
 
         gameData.setGameDescription(DESCRIPTION);
