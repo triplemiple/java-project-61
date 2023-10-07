@@ -1,7 +1,7 @@
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/triplemiple/java-project-61/workflows/hexlet-check/badge.svg)](https://github.com/triplemiple/java-project-61/actions)
+[![Actions Status](https://github.com/triplemiple/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/triplemiple/java-project-61/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ecb402465bcc383d628f/maintainability)](https://codeclimate.com/github/triplemiple/java-project-61/maintainability)
-[![Java CI](https://github.com/triplemiple/java-project-61/workflows/Java%20CI/badge.svg)](https://github.com/triplemiple/java-project-61/actions)
+[![Java CI](https://github.com/triplemiple/java-project-61/actions/workflows/gradle.yml/badge.svg)](https://github.com/triplemiple/java-project-61/actions)
 
 ### Greet
 <img src='app/src/main/resources/pictures/Greet.png' width=30%>
